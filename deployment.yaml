@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dityudha-afi-v3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dityudha-afi-v3
+  template:
+    metadata:
+      labels:
+        app: dityudha-afi-v3
+    spec:
+      containers:
+        - name: dityudha-afi-v3
+          image: dityudha-afi-v2:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
